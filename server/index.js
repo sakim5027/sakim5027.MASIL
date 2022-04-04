@@ -4,7 +4,7 @@ const app = express();
 const port = 5000;
 
 require("dotenv").config();
-const config = require("./config/config");
+const config = require("./config/key");
 
 // app.use(bodyParser.urlencoded({extended: true}));
 // app.use(bodyParser.json());
@@ -16,7 +16,7 @@ but from express 4.xx their own body-parser implementation is included in Expres
 */
 
 const mongoose = require('mongoose')
-mongoose.connect('mongodb+srv://sakim5027:DNFfkffk93@masilcluster.davlr.mongodb.net/myFirstDatabase?retryWrites=true')
+mongoose.connect(config.mongoURI)
   .then(() => console.log('MongoDB Connected!'))
   .catch(err => console.log(err));
 
